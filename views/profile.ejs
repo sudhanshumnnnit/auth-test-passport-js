@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Homepage</title>
+    <style>
+      body {
+        font-family: arial;
+        margin: 0;
+      }
+      nav {
+        background: #ff5353;
+        padding: 20px 10px;
+      }
+      nav ul {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0;
+      }
+      nav li {
+        list-style-type: none;
+        display: inline-block;
+        margin: 0 10px 0 0;
+      }
+      nav a {
+        color: #fff;
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+      }
+      main,
+      header {
+        max-width: 960px;
+        margin: 30px auto;
+        padding: 0 10px;
+        color: #333;
+      }
+      main img {
+        width: 40px;
+        margin-right: 10px;
+        position: relative;
+        top: 12px;
+      }
+      main p {
+        /* display: inline-block; */
+        border-bottom: 1px solid red;
+        padding-bottom: 10px;
+        font-weight: 600;
+        background-color: lightyellow;
+      }
+      main img {
+        width: 200px;
+        height: 207px;
+        border-radius: 36px;
+      }
+      .profile-details {
+        border: 1px solid green;
+        width: 400px;
+        float: right;
+        border-radius: 20px;
+        padding: 20px;
+        width: 960px;
+        height: 224px;
+      }
+      .img-block {
+        float: left;
+        left: 10px;
+        width: 266px;
+      }
+      .profile-block {
+        float: left;
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <% if (user) { %>
+        <li><a href="/auth/logout">Log out</a></li>
+        <% } else { %>
+        <li><a href="/auth/login">Login</a></li>
+        <% } %>
+        <li><a href="/">Homepage</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul>
+    </nav>
+    <header>
+      <!-- <h1>Welcome to your profile, <%= user.username %></h1>
+      <h1>Welcome to your profile, <%= user.profile %></h1> -->
+    </header>
+    <main>
+      <div class="profile-details">
+        <div class="img-block">
+          <img src="<%= user.profile %>" alt="" />
+        </div>
+        <div class="profile-block">
+          <p>
+            Name:<%= user.username %>
+          </p>
+          <p>
+            GoogleID:<%= user.googleId %>
+          </p>
+          <p>
+            Gender:<%= user.gender %>
+          </p>
+          <p>
+            Provider:<%= user.provider %>
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
